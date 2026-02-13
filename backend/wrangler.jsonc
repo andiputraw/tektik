@@ -28,15 +28,9 @@
   "migrations": [
     {
       "tag": "v2",
-      "new_classes": [
+      "new_sqlite_classes": [
         "ProjectBoard",
       ]
     },
-    {
-      "tag": "v3",
-      "new_sqlite_classes": [
-        "TektikDurableObject"
-      ]
-    }
   ]
 }
