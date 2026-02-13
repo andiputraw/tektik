@@ -1,0 +1,1 @@
+Vibe coded kanban board for project management designed to be deployed on cloudflare pages and workers.
