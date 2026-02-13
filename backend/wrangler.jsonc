@@ -30,7 +30,12 @@
       "tag": "v2",
       "new_classes": [
         "ProjectBoard",
-        "new_sqlite_classes"
+      ]
+    },
+    {
+      "tag": "v3",
+      "new_sqlite_classes": [
+        "TektikDurableObject"
       ]
     }
   ]
