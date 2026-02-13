@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "typecheck": "tsc --noEmit",
+    "deploy": "wrangler deploy --minify",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate:local": "wrangler d1 migrations apply tektik-db --local",
+    "test": "vitest run",
+    "test:integration": "docker compose -f docker-compose.test.yml up --build --abort-on-container-exit --exit-code-from integration-tests && docker compose -f docker-compose.test.yml down"
+  },
+  "dependencies": {
+    "@hono/swagger-ui": "^0.5.3",
+    "@hono/zod-openapi": "^1.2.1",
+    "drizzle-orm": "^0.45.1",
+    "hono": "^4.11.9",
+    "nanoid": "^5.1.6",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.12.11",
+    "drizzle-kit": "^0.31.9",
+    "vitest": "^4.0.18",
+    "wrangler": "^4.4.0",
+    "typescript": "^5.9.3"
+  }
+}

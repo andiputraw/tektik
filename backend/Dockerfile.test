@@ -1,0 +1,21 @@
+FROM node:22-slim
+
+WORKDIR /app
+
+# Install system deps
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
+# Install bun (used for dep install)
+RUN npm install -g bun
+
+# Copy package files and install dependencies
+COPY package.json bun.lock* ./
+RUN bun install --frozen-lockfile || bun install
+ 
+# Copy source code, configs, and migrations
+COPY . .
+
+# Make entrypoint executable
+RUN chmod +x scripts/integration-test.sh
+
+ENTRYPOINT ["scripts/integration-test.sh"]

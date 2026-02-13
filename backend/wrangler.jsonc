@@ -1,0 +1,36 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tektik-backend",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-02-12",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "vars": {
+    "JWT_SECRET": "change-this-to-a-strong-secret-in-production"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "tektik-db",
+      "database_id": "",
+      "migrations_dir": "drizzle"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "PROJECT_BOARD",
+        "class_name": "ProjectBoard"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v2",
+      "new_classes": [
+        "ProjectBoard"
+      ]
+    }
+  ]
+}
